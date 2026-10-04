@@ -1,0 +1,378 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="description" content="Chocolat bean-to-bar ivoirien."><title>Cacao Lagune</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"><style>
+/* Layout: grande respiration, une colonne de lecture, photos pleines, filets fins, un seul accent cacao */
+:root{
+  --bg:#ffffff; --surface:#f5f3f0; --fg:#1b1410; --muted:#766b64;
+  --line:#e9e5e0; --accent:#8a4b2a;
+  --sans:"Hanken Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e0b09; --surface:#171310; --fg:#f3efea; --muted:#a39990;
+    --line:#2a2420; --accent:#d9a46f; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e0b09; --surface:#171310; --fg:#f3efea; --muted:#a39990;
+  --line:#2a2420; --accent:#d9a46f; color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:17px;line-height:1.6;font-weight:400;padding-inline:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin-inline:auto}
+h1,h2,h3,h4,p,dl,dd,ol,ul{margin:0;padding:0}
+h1,h2,h3{text-wrap:balance;font-weight:600;letter-spacing:-.03em;line-height:1.04}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.label{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.muted{color:var(--muted);font-weight:300}
+
+/* En-tête */
+.top{position:relative;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-block:24px}
+.logo{font-weight:700;font-size:1.08rem;letter-spacing:-.02em;text-decoration:none}
+.nav{display:flex;align-items:center;gap:30px;font-size:.93rem}
+.nav a{text-decoration:none;color:var(--muted);transition:color .2s}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--fg)}
+.nav a[aria-current="page"]{border-bottom:1px solid var(--fg);padding-bottom:3px}
+.nav .btn{color:var(--bg);padding:10px 20px;font-size:.88rem}
+.nav .btn:hover{color:var(--bg)}
+.menu-btn{display:none;font:inherit;font-size:.9rem;font-weight:500;background:none;color:var(--fg);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+
+/* Boutons et liens */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--fg);color:var(--bg);font:inherit;font-weight:500;font-size:.95rem;text-decoration:none;padding:15px 28px;border-radius:999px;border:0;cursor:pointer;transition:opacity .2s}
+.btn:hover{opacity:.84}
+.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--fg)}
+.link{font-size:.95rem;font-weight:500;text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap;margin-top:36px}
+
+/* Photos */
+.photo{display:block;width:100%;max-width:100%;height:auto;object-fit:cover;border-radius:16px;background:var(--surface)}
+
+/* Hero accueil */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,6vw,88px);align-items:center;padding-block:clamp(24px,5vw,64px) clamp(48px,8vw,104px)}
+.hero h1{font-size:clamp(2.7rem,7.2vw,5.8rem);margin-block:22px 26px}
+.hero .lead{max-width:40ch;color:var(--muted);font-size:1.12rem;font-weight:300}
+.hero .photo{aspect-ratio:4/5;object-position:58% 60%}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid var(--line);padding-block:28px}
+.facts div{display:grid;gap:6px;min-width:0}
+.facts dd{font-size:1.15rem;font-weight:500;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+
+/* Sections */
+section{padding-block:clamp(64px,10vw,128px)}
+.head{display:grid;gap:18px;margin-bottom:clamp(36px,6vw,72px);max-width:36ch}
+.head h2{font-size:clamp(2rem,5vw,3.4rem)}
+.head p:not(.label){color:var(--muted);font-weight:300;font-size:1.08rem;max-width:44ch}
+.head.row{max-width:none;display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:20px}
+.head.row>div{display:grid;gap:18px;max-width:36ch}
+
+/* En-tête de page intérieure */
+.pagehead{padding-block:clamp(40px,8vw,104px) clamp(32px,5vw,56px);border-bottom:1px solid var(--line)}
+.pagehead h1{font-size:clamp(2.4rem,6.4vw,5rem);margin-block:20px 22px;max-width:16ch}
+.pagehead p.lead{max-width:48ch;color:var(--muted);font-weight:300;font-size:1.15rem}
+
+/* Intro maison */
+.statement{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,96px);align-items:start}
+.statement h2{font-size:clamp(1.9rem,4.4vw,3.1rem);max-width:18ch}
+.statement .txt{display:grid;gap:20px;color:var(--muted);font-weight:300;font-size:1.1rem;max-width:46ch}
+
+/* Gamme (cartes d'accueil) */
+.range{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.item{display:grid;gap:18px;align-content:start;border-top:1px solid var(--fg);padding-top:22px;min-width:0}
+.pct{font-size:clamp(3.6rem,8vw,5.6rem);font-weight:300;letter-spacing:-.05em;line-height:.9;font-variant-numeric:tabular-nums}
+.pct small{font-size:.38em;letter-spacing:0;color:var(--muted);margin-left:4px}
+.scale{height:2px;background:var(--line);position:relative}
+.scale i{position:absolute;inset:0 auto 0 0;background:var(--accent)}
+.item h3{font-size:1.3rem;letter-spacing:-.02em}
+.item p{color:var(--muted);font-weight:300;font-size:1rem}
+.buy{display:flex;justify-content:space-between;align-items:baseline;gap:12px;font-variant-numeric:tabular-nums}
+.buy strong{font-weight:600;font-size:1.05rem}
+.buy span{font-family:var(--mono);font-size:.8rem;color:var(--muted)}
+
+/* Gamme (lignes détaillées) */
+.prod{display:grid;grid-template-columns:.8fr 1.2fr .7fr;gap:clamp(20px,4vw,56px);padding-block:clamp(32px,5vw,56px);border-top:1px solid var(--fg);align-items:start}
+.prod+.prod{border-top-color:var(--line)}
+.prod h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-top:14px}
+.prod .desc{color:var(--muted);font-weight:300;max-width:44ch;margin-bottom:22px}
+.profile{display:grid;gap:12px}
+.profile div{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;font-size:.9rem}
+.profile span{font-family:var(--mono);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.prod .side{display:grid;gap:14px;justify-items:start}
+.prod .side .price{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.prod .side small{font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+
+/* Bande inversée */
+.band{background:var(--fg);color:var(--bg);border-radius:20px;padding:clamp(32px,6vw,72px);display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(24px,5vw,72px);align-items:center}
+.band h2{font-size:clamp(1.9rem,4.4vw,3.1rem)}
+.band p{opacity:.78;font-weight:300;margin-top:16px;max-width:44ch}
+.band .btn{background:var(--bg);color:var(--fg)}
+.band .label{color:var(--bg);opacity:.6}
+.band .btn.ghost{background:transparent;color:var(--bg);border-color:var(--bg)}
+.band .acts{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-start}
+
+/* Origine et étapes */
+.origin{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,7vw,104px);align-items:start}
+.origin .photo{aspect-ratio:4/5;position:sticky;top:20px}
+.steps{list-style:none}
+.steps li{display:grid;grid-template-columns:1fr auto;gap:6px 24px;padding-block:26px;border-top:1px solid var(--line)}
+.steps li:first-child{border-top:1px solid var(--fg)}
+.steps b{font-size:1.45rem;font-weight:600;letter-spacing:-.02em}
+.steps .t{font-family:var(--mono);font-size:.82rem;color:var(--accent);align-self:center;white-space:nowrap}
+.steps .d{grid-column:1/-1;color:var(--muted);font-weight:300;max-width:46ch}
+.nums{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.nums div{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:16px}
+.nums strong{font-size:clamp(2rem,4vw,3rem);font-weight:300;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+
+/* Valeurs et repères */
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px)}
+.values article{border-top:1px solid var(--fg);padding-top:22px;display:grid;gap:12px;align-content:start}
+.values h3{font-size:1.3rem}
+.values p{color:var(--muted);font-weight:300}
+.timeline{list-style:none;display:grid;gap:0;border-top:1px solid var(--fg)}
+.timeline li{display:grid;grid-template-columns:120px 1fr;gap:24px;padding-block:22px;border-bottom:1px solid var(--line)}
+.timeline b{font-family:var(--mono);font-weight:500;color:var(--accent);font-size:.95rem}
+.timeline span{color:var(--muted);font-weight:300;max-width:60ch}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,7vw,104px);align-items:center}
+.split .photo{aspect-ratio:4/5}
+.split .txt{display:grid;gap:20px;color:var(--muted);font-weight:300;font-size:1.08rem}
+.split .txt h2{color:var(--fg);font-size:clamp(1.9rem,4.4vw,3.1rem);font-weight:600}
+
+/* Tableaux */
+.tablewrap{overflow-x:auto;max-width:100%}
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;min-width:460px}
+th,td{text-align:left;padding:16px 12px 16px 0;border-bottom:1px solid var(--line);font-size:1rem;vertical-align:top}
+th{font-family:var(--mono);font-size:.74rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-bottom-color:var(--fg)}
+td:last-child,th:last-child{padding-right:0}
+
+/* Formulaires */
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,7vw,104px);align-items:start}
+.formgrid h2{font-size:clamp(1.9rem,4.4vw,3.1rem);margin-block:18px 16px}
+form{display:grid;gap:26px;min-width:0}
+label{display:grid;gap:6px;min-width:0}
+input,select,textarea{font:inherit;font-size:1.05rem;color:var(--fg);background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 0;width:100%;min-width:0;transition:border-color .2s}
+textarea{resize:vertical;min-height:96px}
+input:focus,select:focus,textarea:focus{outline:0;border-bottom-color:var(--fg)}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:.7}
+select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 12px) 55%,calc(100% - 7px) 55%;background-size:5px 5px;background-repeat:no-repeat}
+.row{display:grid;grid-template-columns:1fr 100px;gap:24px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.msg{min-height:1.6em;color:var(--accent);font-size:.95rem}
+.note{font-family:var(--mono);font-size:.74rem;color:var(--muted)}
+form .btn{justify-self:start}
+.contact-list{display:grid;gap:22px;margin-top:36px}
+.contact-list div{display:grid;gap:4px}
+.contact-list dd{font-size:1.1rem;user-select:all;word-break:break-word}
+
+/* FAQ */
+.faq{border-top:1px solid var(--fg)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding-block:22px;font-size:1.2rem;font-weight:500;letter-spacing:-.01em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-weight:400;color:var(--muted);font-size:1.4rem;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding-bottom:24px;color:var(--muted);font-weight:300;max-width:62ch}
+
+/* Pied de page */
+footer{border-top:1px solid var(--line);margin-top:clamp(32px,6vw,72px);padding-block:56px 40px}
+.fcols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.fcols h4{font-family:var(--mono);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:16px}
+.fcols ul{list-style:none;display:grid;gap:10px;font-size:.95rem}
+.fcols a{text-decoration:none}
+.fcols a:hover{text-decoration:underline}
+.fcols p{color:var(--muted);font-weight:300;max-width:32ch;font-size:.95rem}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:48px;padding-top:24px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+
+@media (max-width:900px){
+  body{font-size:16px}
+  .menu-btn{display:inline-block}
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;z-index:5;flex-direction:column;align-items:stretch;gap:0;background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:8px 20px}
+  .nav.open{display:flex}
+  .nav a{padding-block:14px;border-bottom:1px solid var(--line)}
+  .nav a[aria-current="page"]{border-bottom:1px solid var(--line);padding-bottom:14px;font-weight:600}
+  .nav .btn{margin-block:12px 6px;padding:14px 20px}
+  .hero,.statement,.origin,.split,.formgrid,.band{grid-template-columns:1fr}
+  .hero .photo{aspect-ratio:1/1;order:-1}
+  .facts{grid-template-columns:repeat(2,1fr)}
+  .range,.values{grid-template-columns:1fr}
+  .prod{grid-template-columns:1fr}
+  .origin .photo{position:static;aspect-ratio:4/3;object-position:50% 55%}
+  .split .photo{aspect-ratio:4/3}
+  .fcols{grid-template-columns:1fr 1fr}
+  .fcols>div:first-child{grid-column:1/-1}
+  .timeline li{grid-template-columns:80px 1fr;gap:16px}
+}
+@media (max-width:520px){
+  .nums{grid-template-columns:1fr}
+  .row2{grid-template-columns:1fr}
+  .profile div{grid-template-columns:96px 1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+</style></head><body><div class="wrap"><header class="top"><a class="logo" href="index.html">Cacao Lagune</a><button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav">Menu</button><nav class="nav" id="nav" aria-label="Navigation principale"><a href="index.html" aria-current="page">Accueil</a><a href="gamme.html">La gamme</a><a href="histoire.html">Notre histoire</a><a href="pro.html">Professionnels</a><a href="contact.html">Contact</a><a class="btn" href="contact.html#commande">Commander</a></nav></header>
+  <main>
+    <div class="hero">
+      <div>
+        <p class="label">Bean-to-bar · Côte d'Ivoire</p>
+        <h1>Le cacao ivoirien, transformé chez nous.</h1>
+        <p class="lead">Premier producteur mondial de fèves, rarement de chocolat. Nos tablettes sont fermentées, séchées et torréfiées à quelques kilomètres des plantations.</p>
+        <div class="actions">
+          <a class="btn" href="contact.html#commande">Commander</a>
+          <a class="link" href="gamme.html">Voir la gamme</a>
+        </div>
+      </div>
+      <img class="photo" src="IMG_8599.jpeg" width="723" height="1100" alt="Cabosses de cacao jaunes et brunes, une cabosse ouverte sur ses fèves blanches, fèves séchées dans un bol en bois et un sac de jute">
+    </div>
+
+    <dl class="facts" aria-label="Fiche technique">
+      <div><dt class="label">Poids</dt><dd>80 g</dd></div>
+      <div><dt class="label">Cacao</dt><dd>55 à 85 %</dd></div>
+      <div><dt class="label">Origine</dt><dd>Soubré, Daloa</dd></div>
+      <div><dt class="label">Ingrédients</dt><dd>3 maximum</dd></div>
+    </dl>
+
+    <section>
+      <div class="statement">
+        <h2>Du chocolat qui garde le goût de son pays.</h2>
+        <div class="txt">
+          <p>La Côte d'Ivoire récolte une grande part du cacao mondial, mais la transformation se fait presque toujours ailleurs. Nous avons choisi de la faire ici, de la fève à la tablette.</p>
+          <p>Trois ingrédients au plus : des fèves, du sucre de canne, parfois du beurre de cacao. Rien d'autre.</p>
+          <a class="link" href="histoire.html" style="justify-self:start">Lire notre histoire</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="gamme" style="padding-top:0">
+      <div class="head row">
+        <div>
+          <p class="label">La gamme</p>
+          <h2>Trois tablettes, trois intensités.</h2>
+        </div>
+        <a class="link" href="gamme.html">Toute la gamme</a>
+      </div>
+      <div class="range">
+        <article class="item">
+          <div class="pct">55<small>%</small></div>
+          <div class="scale" role="img" aria-label="55 % de cacao"><i style="width:55%"></i></div>
+          <h3>Lagune</h3>
+          <p>Doux et lacté, notes de noix de coco grillée. Pour commencer.</p>
+          <div class="buy"><strong>3 500 FCFA</strong><span>&asymp; 6 $</span></div>
+        </article>
+        <article class="item">
+          <div class="pct">70<small>%</small></div>
+          <div class="scale" role="img" aria-label="70 % de cacao"><i style="width:70%"></i></div>
+          <h3>Soubré</h3>
+          <p>Équilibré, fruits rouges et pain d'épices. Notre tablette la plus vendue.</p>
+          <div class="buy"><strong>4 000 FCFA</strong><span>&asymp; 7 $</span></div>
+        </article>
+        <article class="item">
+          <div class="pct">85<small>%</small></div>
+          <div class="scale" role="img" aria-label="85 % de cacao"><i style="width:85%"></i></div>
+          <h3>Daloa</h3>
+          <p>Intense et peu sucré, finale de café noir. Pour les amateurs.</p>
+          <div class="buy"><strong>4 500 FCFA</strong><span>&asymp; 8 $</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="split">
+        <img class="photo" src="IMG_8600.jpeg" width="846" height="1100" loading="lazy" alt="Cabosses rouges et orangées suspendues aux branches d'un cacaoyer, entourées de grandes feuilles vertes">
+        <div class="txt">
+          <p class="label">Notre méthode</p>
+          <h2>Des durées qu'on ne raccourcit pas.</h2>
+          <p>Le goût d'un chocolat se joue avant la torréfaction. Fermentation, séchage au soleil, conchage lent : chaque étape prend le temps qu'il lui faut.</p>
+          <div class="nums" style="margin-top:12px">
+            <div><strong>6 j</strong><span class="label">Fermentation</span></div>
+            <div><strong>7 j</strong><span class="label">Séchage</span></div>
+            <div><strong>48 h</strong><span class="label">Conchage</span></div>
+          </div>
+          <a class="link" href="histoire.html#methode" style="justify-self:start">Voir toutes les étapes</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0">
+      <div class="band">
+        <div>
+          <p class="label">Professionnels</p>
+          <h2>Restaurants, hôtels, boutiques.</h2>
+          <p>Cartons de 24 tablettes, couverture en grand format et coffrets personnalisés, avec des tarifs dégressifs.</p>
+        </div>
+        <div class="acts">
+          <a class="btn" href="pro.html">Espace professionnels</a>
+          <a class="btn ghost" href="contact.html">Nous écrire</a>
+        </div>
+      </div>
+    </section>
+    
+    <section>
+      <div class="formgrid">
+        <div>
+          <p class="label">Lettre d'information</p>
+          <h2>Un message par saison de récolte.</h2>
+          <p class="muted">Nouveaux lots, dates de sortie et recettes. Pas de publicité, pas de relance.</p>
+        </div>
+        <form data-demo="lettre" novalidate>
+          <label for="nl-nom"><span class="label">Prénom et nom</span><input id="nl-nom" name="nom" type="text" autocomplete="name" placeholder="Aya Koné"></label>
+          <label for="nl-mail"><span class="label">E-mail</span><input id="nl-mail" name="email" type="email" autocomplete="email" placeholder="aya@exemple.com"></label>
+          <button class="btn" type="submit">Je m'inscris</button>
+          <p class="msg" role="status" aria-live="polite"></p>
+          <p class="note">Exemple : ce formulaire n'envoie rien.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+<footer>
+  <div class="fcols">
+    <div>
+      <a class="logo" href="index.html">Cacao Lagune</a>
+      <p style="margin-top:14px">Chocolat bean-to-bar fait à Abidjan, à partir de fèves ivoiriennes fermentées et séchées avec soin.</p>
+    </div>
+    <div><h4>Découvrir</h4><ul>
+      <li><a href="gamme.html">La gamme</a></li>
+      <li><a href="histoire.html">Notre histoire</a></li>
+      <li><a href="pro.html">Professionnels</a></li>
+    </ul></div>
+    <div><h4>Aide</h4><ul>
+      <li><a href="contact.html#commande">Commander</a></li>
+      <li><a href="contact.html#livraison">Livraison</a></li>
+      <li><a href="contact.html#faq">Questions fréquentes</a></li>
+    </ul></div>
+    <div><h4>Atelier</h4><ul>
+      <li>Zone industrielle de Yopougon</li>
+      <li>Abidjan, Côte d'Ivoire</li>
+      <li>bonjour@cacaolagune.example</li>
+    </ul></div>
+  </div>
+  <div class="legal"><span>&copy; 2026 Cacao Lagune</span><span>Marque fictive créée comme exemple de site</span></div>
+</footer>
+</div>
+<script>
+(function(){
+  var b=document.querySelector('.menu-btn'),n=document.getElementById('nav');
+  if(b&&n){b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Fermer':'Menu';});}
+  var prix={'Lagune 55':3500,'Soubré 70':4000,'Daloa 85':4500,'Coffret découverte':11000};
+  document.querySelectorAll('form[data-demo]').forEach(function(f){
+    var msg=f.querySelector('.msg');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var kind=f.getAttribute('data-demo');
+      var nom=f.elements.nom?f.elements.nom.value.trim():'';
+      var mail=f.elements.email?f.elements.email.value.trim():'';
+      if(!nom||mail.indexOf('@')<1){msg.textContent='Renseignez votre nom et une adresse e-mail valide.';return;}
+      var first=nom.split(' ')[0];
+      if(kind==='commande'){
+        var q=parseInt(f.elements.qte.value,10)||0;
+        if(q<1){msg.textContent='Choisissez une quantité d’au moins 1.';return;}
+        var t=f.elements.tab.value,total=(prix[t]*q).toLocaleString('fr-FR');
+        msg.textContent='Merci '+first+'. Résumé : '+q+' × '+t+', soit '+total+' FCFA.';
+      }else{
+        msg.textContent='Merci '+first+'. Votre message est bien préparé.';
+      }
+    });
+  });
+})();
+</script></body></html>
